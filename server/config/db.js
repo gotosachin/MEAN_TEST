@@ -6,7 +6,15 @@ var options = {
     reconnectTries: 30
 };
 
-var connection = mongoose.connect('mongodb://localhost:27017/mean_db', options, function(err, db) {
+// var connection = mongoose.connect('mongodb://localhost:27017/mean_db', options, function(err, db) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log('Database Connection: Connected!!');
+//     }
+// });
+
+var connection = mongoose.connect('mongodb://sachinbc:sachinbc@ds155315.mlab.com:55315/bc_sachin', options, function(err, db) {
     if (err) {
         console.log(err);
     } else {

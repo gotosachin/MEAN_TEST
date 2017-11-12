@@ -2,7 +2,7 @@
     var express = require('express'),
         path = require('path'),
         bodyParser = require('body-parser'),
-       
+        routes = require('./server/routes/web'), //web routes
         apiRoutes = require('./server/routes/api'), //api routes
         connection = require("./server/config/db"); //mongodb connection
 
@@ -20,12 +20,12 @@
     app.use(bodyParser.urlencoded({ extended: false }));
 
     // setting static files location './app' for angular app html and js
-    app.use(express.static(path.join(__dirname, 'client')));
+    app.use(express.static(path.join(__dirname, 'app')));
     // setting static files location './node_modules' for libs like angular, bootstrap
     app.use(express.static('node_modules'));
 
     // configure our routes
-   
+    app.use('/', routes);
     app.use('/api', apiRoutes);
 
     // setting port number for running server
